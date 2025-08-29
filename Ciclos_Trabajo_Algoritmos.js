@@ -1,60 +1,88 @@
-//1. Algoritmo para imprimir números del 1 al 10 
 
-  let imprimirNumeros = 0; 
+// Ejemplos de ciclos en JavaScript
+//let idx = 0; 
+  //while (idx <= 10) {
+    //console.log(idx); 
+    //idx++;
+  //}
 
-  for (let i = 1; i <= 10; i++) {
-       console.log(i);
-      
+//1. Algoritmo para imprimir números del 1 al 10 con metodo while
+let i = 1;
 
-}      
- console.log("----------------------------------------");
+while (i <= 10) {
+    console.log(i);
+    i++;
+}
 
-//2. Algoritmo para sumar los primeros 10 números
+console.log("----------------------------------------");
+
+//2. Algoritmo para sumar los primeros 10 números con metodo while  
+
 
     let suma = 0;  
-     
-    for (let i = 1; i <= 10; i++) {
-        suma += i; 
+    let j = 0; 
+    while (j <= 10) {
+    console.log(j); 
+    j++;
+    for (let k = 1; k <= 10; k++) {
+        suma += k; 
         
     }
     console.log("la suma de los primeros 10 numeros es: " + suma);
     console.log("----------------------------------------");
     
-
-    //3. Algoritmo para generar la tabla de un numero dado por argumento en una función
+    }
+    //3. Algoritmo para generar la tabla de un numero dado por argumento en una función con metodo while
+    
 function tablaMultiplicar(numero) {
-
-    for (let i = 1; i <= 10; i++) {
-
-        console.log(`${numero} x ${i} = ${numero * i}`);
-        
+    let i = 1;
+    while (i <= 10) {
+        console.log(numero + " x " + i + " = " + (numero * i));
+        i++; 
     }
 }
-tablaMultiplicar(2); 
+
+
+tablaMultiplicar(9);
 console.log("----------------------------------------");
 
-//4. Algoritmo para contar ocurrencias de 'a' en un texto
-let texto = "Las personas que aman la naturaleza son felices. La naturaleza es vida.";
-let contador = 0;
-for (texto of texto){
-    if (texto.includes("a") || texto.includes('A')) {
-        contador++;
+//4. Algoritmo para contar ocurrencias de 'a' en un texto con metodo while
+
+function contarA(texto) {
+    let contador = 0;
+    let i = 0;
+
+    while (i < texto.length) {
+        if (texto[i] === 'a' || texto[i] === 'A') {
+            contador++;
+        }
+        i++;
     }
+
+    console.log("Cantidad de 'a' encontradas: " + contador);
 }
-console.log("la letra 'a' aparece " + contador + " veces");
+
+contarA("Aprendamos a generar algoritmos con ciclos y algoritmos en JavaScript");
+
+//5. Algoritmo para calcular el factorial de un número con metodo while
+
+function factorial(numero) {
+    let resultado = 1;
+    let i = 1;
+
+    while (i <= numero) {
+        resultado = resultado * i;
+        i++;
+    }
+
+    console.log("El factorial de " + numero + " es: " + resultado);
+}
+
+factorial(6);
 console.log("----------------------------------------");
 
-//5. Algoritmo para calcular el factorial de un número
+//6. Escribe una función que reciba un array de números y devuelva un nuevo array que contenga solo los números pares con metodo while.
 
-let numeroFactorial = 6; 
-let factorial = 1;
-for(let i = 1; i <= numeroFactorial; i++) {
-    factorial *= i;
-}
-console.log("El factorial de "  + numeroFactorial + " es: " +factorial);
-console.log("----------------------------------------");
-
-//6. Escribe una función que reciba un array de números y devuelva un nuevo array que contenga solo los números pares.
 let numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 let numerosPares = [];
 
@@ -68,52 +96,82 @@ console.log("Los números pares son: " + numerosPares);
 console.log("----------------------------------------");
 
 //7. Implementa una función que calcule la suma de los cuadrados de los primeros N números naturales.
-let numerosNaturales = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-let sumaDeNumeros = [];
+function filtrarPares(numeros) {
+    let pares = [];
+    let i = 0;
 
-function sumaCuadrados(numeros) {
-    let suma = 0;
-    for (let i = 0; i < numeros.length; i++) {
-        suma += numeros[i] * numeros[i];
+    while (i < numeros.length) {
+        if (numeros[i] % 2 === 0) { // condición de número par
+            pares.push(numeros[i]);
+        }
+        i++;
     }
-    return suma;
-    
+
+    return pares;
 }
-console.log("La suma de los cuadrados de los primeros 10 números naturales es: " + sumaCuadrados(numerosNaturales));
+
+let lista = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+console.log(filtrarPares(lista)); 
 console.log("----------------------------------------");
 
-//8. Escribe una función que calcule la potencia de un número (base^exponente) utilizando un ciclo for, sin usar el operador de potencia **.
+//8. Escribe una función que calcule la potencia de un número (base^exponente) utilizando un ciclo for, sin usar el operador de potencia ** con metodo while.
 function potencia(base, exponente) {
     let resultado = 1;
-    for (let i = 0; i < exponente; i++) {
-        resultado *= base;
+    let i = 0;
+
+    while (i < exponente) {
+        resultado = resultado * base;
+        i++;
     }
+
     return resultado;
 }
-console.log("La potencia de 2 elevado a 3 es: " + potencia(2, 3));
+
+console.log("La potencia es: " +potencia(2, 5)); 
+console.log("La potencia es: " +potencia(3, 4)); 
 console.log("----------------------------------------");
 
-//9. Desarrolla una función que genere y devuelva los primeros N términos de la serie de Fibonacci.
+//9. Desarrolla una función que genere y devuelva los primeros N términos de la serie de Fibonacci con metodo while.
 
-function fibonacci(n) {
-    let fib = [0, 1];
-    for (let i = 2; i < n; i++) {
-        fib[i] = fib[i - 1] + fib[i - 2];
+function fibonacci(N) {
+    let serie = [];
+    
+    if (N <= 0) return serie;
+    if (N >= 1) serie.push(0);
+    if (N >= 2) serie.push(1);
+
+    let i = 2;
+    while (i < N) {
+        let siguiente = serie[i - 1] + serie[i - 2];
+        serie.push(siguiente);
+        i++;
     }
-    return fib.slice(0, n);
+
+    return serie;
 }
-console.log("Los primeros 10 términos de la serie de Fibonacci son: " + fibonacci(10));
-console.log("----------------------------------------");    
 
-//10. Desarrolla una función que genere el total de las tablas de multiplicar dado un numero entero.
+console.log(fibonacci(10));
+console.log("----------------------------------------");
+    
 
-function tablasMultiplicar(totalTablas) {
-   for (let i = 1; i <= 9; i++) {
-    for (let j = 1; j <= 9; j++) {
-        console.log(i + " x " + j + " = " + (i * j));
-    }
-    console.log('-------------------');
+//10. Desarrolla una función que genere el total de las tablas de multiplicar dado un numero entero con metodo while.
+
+function generarTablas(numero) {
+    let i = 1;
+
+    while (i <= numero) {
+        console.log("Tabla del " + i + ":");
+
+        let j = 1;
+        while (j <= 10) {
+            console.log(i + " x " + j + " = " + (i * j));
+            j++;
+        }
+
+        console.log("-------------------");
+        i++;
     }
 }
-console.log("Tablas de multiplicar del 1 al 9:");
-tablasMultiplicar(9);
+
+generarTablas(9);
+console.log("----------------------------------------");
